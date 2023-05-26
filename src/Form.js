@@ -58,7 +58,7 @@ function Form({ currentPlayer, gameStart }) {
         </div>
     )
     return (
-        value == false ? formbox : detailbox
+        value === false ? formbox : detailbox
     )
 
 }

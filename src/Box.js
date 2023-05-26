@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 var array = new Array(9).fill(0);
 function Box({ currentPlayer, start, changeUser , changeCPlayer}) {
     const [winner, setWinner] = useState(null);
