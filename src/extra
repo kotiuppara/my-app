@@ -1,0 +1,64 @@
+import React, { Component, useEffect, useState } from 'react'
+import Display from './Display'
+import './App.css'
+export class App extends Component {
+  state = {
+    name: "Koti",
+    id: "R180844"
+  }
+  render() {
+    return (
+      <div>
+        <h2>hello {this.state.name}</h2>
+        <Display id={this.state.id} />
+      </div>
+    )
+  }
+}
+// import React from 'react'
+const App1 = () => {
+  const [count, setCount] = useState(0);
+  useEffect(() => console.log(count), [count]);
+  const [name, setName] = useState('');
+  const handler = e => { setName(e.target.value) }
+  return (
+    <div>
+      <h2>{count}</h2>
+      <button onClick={() => setCount(count + 1)}>Increase</button>
+      <div><br />
+        <input type="text" name="name" onChange={handler} placeholder='name' />
+        <br />{name}
+      </div>
+    </div>
+  )
+}
+function PageTitle() {
+  const [name, setName] = useState('');
+
+  useEffect(() => {
+    document.title = `Hi, ${name}`;
+    alert("component rendered for the first time");
+    return () => {
+      alert("component is being removed from the DOM");
+    }
+  },[]);
+
+  return (
+    <div>
+      <p>Use {name} the input field below to rename this page!</p>
+      <input onChange={({ target }) => setName(target.value)} value={name} type='text' />
+    </div>
+  );
+}
+export default PageTitle;
+
+
+import React, { Component } from 'react'
+
+export default class Display extends Component {
+  render() {
+    return (
+      <div>My Id is {this.props.id}</div>
+    )
+  }
+}
